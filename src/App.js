@@ -65,7 +65,7 @@ function App() {
            <h1>Designation: { users.designation}</h1>
            <h1>Email: {users.email}</h1>
            <h1>emp_id: {users.emp_id}</h1>
-           <button onClick={() => {updateUser(users.id,users.email)}}> edit details</button>
+           <button onClick={() => {updateUser(users.id,users.email)}}> update details</button>
           </div>
         })}
     </div>
