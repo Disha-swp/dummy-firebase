@@ -1,0 +1,311 @@
+import React, { useState, useEffect, useRef } from "react";
+import {
+  Row,
+  Col,
+  Card,
+  Container,
+  Button,
+  Modal,
+  Form,
+} from "react-bootstrap";
+import "../App.css";
+// import { db } from "./firebase-config";
+// users-Empdetails = EmployeeData
+import { db } from "../base.js";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+  getFirestore,
+} from "firebase/firestore";
+
+const Employee = () => {
+  console.log("firebae conn chk", db);
+  const [newName, setNewName] = useState("");
+  const [newDesignation, setNewDesignation] = useState("");
+  const [newEmail, setNewEmail] = useState("");
+  const [newEmpId, setNewEmpId] = useState("");
+  const [users, setUsers] = useState([]);
+
+  const [showEdit, setShowEdit] = useState(false);
+
+  const usersCollectionref = collection(db, "EmployeeData");
+
+  const [show, setShow] = useState(false);
+  const [modalData, setModalData] = useState();
+
+  const handleClose = () => {
+    setShow(false);
+    setModalData(undefined);
+  };
+  // const handleShow = () => setShow(true);
+
+  const ref = useRef(null);
+
+  const createUser = async () => {
+    console.log("create user function called");
+    try {
+      const res = await addDoc(usersCollectionref, {
+        name: newName,
+        designation: newDesignation,
+        email: newEmail,
+        employee_id: newEmpId,
+      });
+      if (res) {
+        alert("added successfully");
+      }
+      getUsers();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const updateUser = async (id) => {
+    console.log(id);
+    const empdocref = doc(db, "EmployeeData", id);
+    await updateDoc(empdocref, {
+      name: newName,
+      designation: newDesignation,
+      email: newEmail,
+      employee_id: newEmpId,
+    });
+    getUsers();
+    console.log(id);
+  };
+
+  const deleteUser = async (id) => {
+    const userDoc = doc(db, "EmployeeData", id);
+    try {
+      const res = await deleteDoc(userDoc);
+      if (!res) {
+        alert("deleted successfully");
+      }
+      getUsers();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getUsers();
+  }, []);
+  const getUsers = async () => {
+    console.log("use effect called");
+    const data = await getDocs(usersCollectionref);
+    console.log(data);
+    setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  };
+
+  // console.log(users);
+
+  useEffect(() => {
+    if (modalData) {
+      setNewName(modalData.name);
+      setNewEmail(modalData.email);
+      setNewDesignation(modalData.designation);
+      setNewEmpId(modalData.employee_id);
+      // console.log(modalData);
+    }
+  }, [modalData]);
+
+  return (
+    <div>
+      <Button
+        onClick={() => {
+          setShow(true);
+        }}
+      >
+        Create User
+      </Button>
+      {/* createUser() ; */}
+      <Container>
+        <Row xs={3}>
+          {users.length > 0 &&
+            users.map((ele, ind) => (
+              <Col>
+                <Card
+                  onClick={() => {
+                    setModalData(ele);
+                    setShow(true);
+                  }}
+                  className="hover-zoom"
+                >
+                  <div style={{ borderBottom: "2px solid black" }} key={ele.id}>
+                    <h3>{ele.name}</h3>
+                    <h3>{ele.employee_id}</h3>
+                    {/* <button
+                      onClick={() => {
+                        setModalData(ele);
+                        setShow(true);
+                      }}
+                    >
+                      Show Details
+                    </button> */}
+                  </div>
+                </Card>
+              </Col>
+            ))}
+        </Row>
+      </Container>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          {modalData && <Modal.Title>Edit Details</Modal.Title>}
+          {!modalData && <Modal.Title>Create User</Modal.Title>}
+        </Modal.Header>
+        <Modal.Body>
+          Woohoo, you're reading this text in a modal!
+          {/* for update */}
+          {modalData && (
+            <>
+              <Form>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control
+                    value={newName}
+                    onChange={(event) => {
+                      setNewName(event.target.value);
+                    }}
+                  />
+                </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Label>Designation</Form.Label>
+                  <Form.Control
+                    value={newDesignation}
+                    onChange={(event) => {
+                      setNewDesignation(event.target.value);
+                    }}
+                  />
+                </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    type="email"
+                    value={newEmail}
+                    onChange={(event) => {
+                      setNewEmail(event.target.value);
+                    }}
+                  />
+                </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Label>Employee ID</Form.Label>
+                  <Form.Control
+                    value={newEmpId}
+                    onChange={(event) => {
+                      setNewEmpId(event.target.value);
+                    }}
+                  />
+                </Form.Group>
+              </Form>
+            </>
+          )}
+          {/* during create */}
+          {!modalData && (
+            <>
+              <Form>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control
+                    placeholder="name..."
+                    onChange={(event) => {
+                      setNewName(event.target.value);
+                    }}
+                  />
+                </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Label>Designation</Form.Label>
+                  <Form.Control
+                    placeholder="designation..."
+                    onChange={(event) => {
+                      setNewDesignation(event.target.value);
+                    }}
+                  />
+                </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="email..."
+                    onChange={(event) => {
+                      setNewEmail(event.target.value);
+                    }}
+                  />
+                </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Label>Employee ID</Form.Label>
+                  <Form.Control
+                    placeholder="Emp ID..."
+                    onChange={(event) => {
+                      setNewEmpId(event.target.value);
+                    }}
+                  />
+                </Form.Group>
+              </Form>
+            </>
+          )}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            variant="secondary"
+            onClick={() => {
+              handleClose();
+              deleteUser(modalData.id);
+            }}
+          >
+            delete
+          </Button>
+          {modalData && (
+            <Button
+              variant="primary"
+              onClick={() => {
+                handleClose();
+                updateUser(modalData.id);
+              }}
+            >
+              Save Changes
+            </Button>
+          )}
+          {!modalData && (
+            <Button
+              variant="primary"
+              onClick={() => {
+                handleClose();
+                createUser();
+              }}
+            >
+              Create User
+            </Button>
+          )}
+        </Modal.Footer>
+      </Modal>
+    </div>
+  );
+};
+
+export default Employee;

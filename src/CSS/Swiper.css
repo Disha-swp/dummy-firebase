@@ -1,0 +1,13 @@
+.card {
+    background-color: transparent;
+    border: none;
+    margin-top: 150px;
+  }
+  .wrapper {
+    position: relative;
+  }
+  .first,
+  .second,
+  .third {
+    position: relative;
+  }

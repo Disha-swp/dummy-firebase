@@ -1,0 +1,228 @@
+crud operations in firebase database
+creation of data using hooks:- for each parameter
+    here newName,newDesignation,newEmail,newEmpId are hooks defined under useState
+    also adding an alert to show data added
+    also getUsers() function it results all different data 
+// const createUser = async () => {
+//     console.log('create user function called')
+//     try{
+//       const res = await addDoc(usersCollectionref, {
+//         name: newName,
+//         designation: newDesignation,
+//         email: newEmail,
+//         employee_id: newEmpId,
+//       });
+//       if(res){
+//         alert('added successfully')
+//       }
+//       getUsers();
+//     }catch(error){
+// console.log(error)
+//     }
+
+//   };
+
+getDocs, addDoc is a funtion predefined in fireStore
+
+const getUsers = async () => {
+    console.log('useeffect called')
+    const data = await getDocs(usersCollectionref);
+    console.log(data)
+    setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  };
+
+getUsers function is getting the data from the usersCollectionref " 
+referenced from the database present in firebase
+
+in updation " the
+we are passing that data on which edit option was clicked and passing it the id (modalData.id)
+empdocref reference for that doc having the passed "id" as its id
+
+const updateUser = async (id) => {
+    console.log(id)
+    const empdocref = doc(db,'EmployeeData',id)
+    await updateDoc(empdocref,{ 
+      name : newName,
+      designation : newDesignation,
+      email : newEmail,
+      employee_id:newEmpId
+    })
+    getUsers();
+    console.log(id)
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // when we add " .env " file restart the system
+  // " .env " file should always be in main file ie. parallel to src not inside "
+  //" .env " file needs to be hidden 
+
+
+              {/* <h3>{ele.designation}</h3> */}
+            {/* <h3>{ele.email}</h3> */}
+
+            {/* <button
+              onClick={() => {
+                deleteUser(ele.id);
+              }}
+            >
+              Delete
+            </button> */}
+
+
+
+
+
+ {/* <input
+        placeholder="name..."
+        onChange={(event) => {
+          setNewName(event.target.value);
+        }}
+      />
+      <input
+        placeholder="designation..."
+        onChange={(event) => {
+          setNewDesignation(event.target.value);
+        }}
+      />
+      <input
+        placeholder="email..."
+        onChange={(event) => {
+          setNewEmail(event.target.value);
+        }}
+      />
+      <input
+        placeholder="employee_id..."
+        onChange={(event) => {
+          setNewEmpId(event.target.value);
+        }}
+      /> */}
+
+
+
+
+
+      ///for update
+      {/* <input
+                value={newName}
+                onChange={(event) => {
+                  setNewName(event.target.value);
+                }}
+              />
+              <input
+                value={newDesignation}
+                onChange={(event) => {
+                  setNewDesignation(event.target.value);
+                }}
+              />
+              <input
+                value={newEmail}
+                onChange={(event) => {
+                  setNewEmail(event.target.value);
+                }}
+              />
+              <input
+                value={newEmpId}
+                onChange={(event) => {
+                  setNewEmpId(event.target.value);
+                }}
+              /> */}
+            </>
+
+
+            //Create user
+
+             {/* <input
+                placeholder="name..."
+                onChange={(event) => {
+                  setNewName(event.target.value);
+                }}
+              />
+              <input
+                placeholder="designation..."
+                onChange={(event) => {
+                  setNewDesignation(event.target.value);
+                }}
+              />
+              <input
+                placeholder="email..."
+                onChange={(event) => {
+                  setNewEmail(event.target.value);
+                }}
+              />
+              <input
+                placeholder="employee_id..."
+                onChange={(event) => {
+                  setNewEmpId(event.target.value);
+                }}
+              /> */}
+
+
+
+              {
+            showEdit && (
+                <>
+                <Form>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Label>Name : {newName}</Form.Label>
+                  
+                </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Label>Designation: {newDesignation}</Form.Label>
+                  
+                </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Label>Email: {newEmail}</Form.Label>
+                  
+                </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Label>Employee ID:{newEmpId}</Form.Label>
+                  <Form.Control
+                    value={newEmpId}
+                    onChange={(event) => {
+                      setNewEmpId(event.target.value);
+                    }}
+                  />
+                </Form.Group>
+              </Form>
+                </>
+            )
+          }
