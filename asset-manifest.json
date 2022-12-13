@@ -1,25 +1,19 @@
 {
   "files": {
     "main.css": "/dummy-firebase/static/css/main.447969f1.css",
-    "main.js": "/dummy-firebase/static/js/main.38ba986b.js",
+    "main.js": "/dummy-firebase/static/js/main.534dd779.js",
     "static/js/787.dd0257b3.chunk.js": "/dummy-firebase/static/js/787.dd0257b3.chunk.js",
     "static/media/hyperledger.svg": "/dummy-firebase/static/media/hyperledger.bbe3df41b7a652bc77bcafce283d5f69.svg",
     "static/media/polkadot.svg": "/dummy-firebase/static/media/polkadot.7bf41cbc66cfa7fdb0a06b0d88068291.svg",
-    "static/media/defi.svg": "/dummy-firebase/static/media/defi.3f865ff8658ecf4ebd6c4d2a415311aa.svg",
-    "static/media/Defi_2.svg": "/dummy-firebase/static/media/Defi_2.bf0000e967554e7999c8ad47e6ac0337.svg",
-    "static/media/smart_contract_2.svg": "/dummy-firebase/static/media/smart_contract_2.06ee6d737f75085900ce39bf468cf866.svg",
-    "static/media/smart_contract.svg": "/dummy-firebase/static/media/smart_contract.7cdc28b1120ad4cf5de6e28b07bff7dc.svg",
     "static/media/corda.svg": "/dummy-firebase/static/media/corda.b1fc622924985c062ab2662a98dbf581.svg",
-    "static/media/SSID_2.svg": "/dummy-firebase/static/media/SSID_2.702ceb15ad792bf34f0b62ed9fa377b0.svg",
-    "static/media/SSID.svg": "/dummy-firebase/static/media/SSID.095e1a401976ed0aea33bc95f95aa77d.svg",
     "index.html": "/dummy-firebase/index.html",
     "static/media/ethereum.svg": "/dummy-firebase/static/media/ethereum.808f8ef7cbf727765fd936f7b8d42b48.svg",
     "main.447969f1.css.map": "/dummy-firebase/static/css/main.447969f1.css.map",
-    "main.38ba986b.js.map": "/dummy-firebase/static/js/main.38ba986b.js.map",
+    "main.534dd779.js.map": "/dummy-firebase/static/js/main.534dd779.js.map",
     "787.dd0257b3.chunk.js.map": "/dummy-firebase/static/js/787.dd0257b3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.447969f1.css",
-    "static/js/main.38ba986b.js"
+    "static/js/main.534dd779.js"
   ]
 }
