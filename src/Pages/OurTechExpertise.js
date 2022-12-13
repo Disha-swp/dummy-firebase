@@ -1,8 +1,4 @@
 import React, { useEffect, useState } from "react";
-import corda from "../Assets/corda.svg";
-import polkadot from "../Assets/polkadot.svg";
-import hyperledger from "../Assets/hyperledger.svg";
-import ethereum from "../Assets/ethereum.svg";
 import SecurityIcon from "@mui/icons-material/Security";
 import WeekendRoundedIcon from "@mui/icons-material/WeekendRounded";
 import SportsCricketRoundedIcon from "@mui/icons-material/SportsCricketRounded";
@@ -100,12 +96,12 @@ function OurTechExpertise() {
     <div className="row" data-aos="fade-up" style={{marginTop:"-80px",marginBottom:"-90px"}}>
       <div
         data-aos="flip-right"
-        data-aos-delay="200"
+        data-aos-delay="100"
         className="col-12 col-sm-6 col-lg-3 d-flex text-center align-items-center justify-content-center"
         onMouseOver={() => setOver("corda")}
         onMouseOut={() => setOver(null)}
       >
-        <div className=" pb-5">
+        <div className="mt-5 mt-md-0">
           <SecurityIcon
             style={
               over === "corda"
@@ -139,12 +135,12 @@ function OurTechExpertise() {
       </div>
       <div
         data-aos="flip-right"
-        data-aos-delay="400"
+        data-aos-delay="200"
         className="col-12 col-sm-6 col-lg-3 d-flex text-center align-items-center justify-content-center"
         onMouseOver={() => setOver("polkadot")}
         onMouseOut={() => setOver(null)}
       >
-        <div className=" py-5">
+        <div className="">
           <WeekendRoundedIcon
             style={
               over === "polkadot"
@@ -179,12 +175,12 @@ function OurTechExpertise() {
       <div
       
       data-aos="flip-right"
-      data-aos-delay="600"
-        className="col-12 col-sm-6 col-lg-3 d-flex text-center align-items-center justify-content-center"
+      data-aos-delay="300"
+        className="col-12 col-sm-6 col-lg-3 d-flex text-center align-items-center justify-content-center "
         onMouseOver={() => setOver("ledger")}
         onMouseOut={() => setOver(null)}
       >
-        <div className=" mt-4 py-5">
+        <div className="" style={{marginTop:"-20px"}}>
           <SportsCricketRoundedIcon
             style={
               over === "ledger"
@@ -219,12 +215,12 @@ function OurTechExpertise() {
       <div
         
         data-aos="flip-right"
-        data-aos-delay="800"
-        className="col-12 col-sm-6 col-lg-3 d-flex text-center align-items-center justify-content-center"
+        data-aos-delay="400"
+        className="col-12 col-sm-6 col-lg-3 d-flex text-center align-items-center justify-content-center mb-3"
         onMouseOver={() => setOver("ethereum")}
         onMouseOut={() => setOver(null)}
       >
-        <div className="mt-4 py-5">
+        <div className="">
           <QueueMusicRoundedIcon
             style={
               over === "ethereum"

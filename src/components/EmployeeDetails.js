@@ -104,10 +104,10 @@ const Employee = () => {
   return (
     <div>
       <NavBar />
-      <div className="container align-items-center text-center text-sm-start p-3 mt-5">
+      <div className="container align-items-center text-center text-sm-start p-3">
       <div>
         <button
-          className="btn btn-secondary align-items-center ms-3"
+          className="btn btn-secondary align-items-center ms-lg-3"
           onClick={() => {
             setShow(true);
           }}

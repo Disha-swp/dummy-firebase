@@ -33,7 +33,6 @@ const Home = () => {
           </div>
           <div
             className="fs-5 text-sm-start text-center mt-5 para"
-            style={{ color: "#cdcdcd" }}
           >
             A database is information that is set up for easy access, management
             and updating. Computer databases typically store aggregations of

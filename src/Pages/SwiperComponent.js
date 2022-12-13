@@ -32,7 +32,7 @@ export default function SwiperComponent() {
         {isDisplayed === "first" && (
           <div className="first" data-aos="fade" data-aos-easing="ease-in-sine">
             <div className="remove-item row text-sm-start text-center">
-              <div className="card">
+              <div className="card m-0">
                 <div className="card-head fs-1 fw-bold">
                   JavaScript
                 </div>
@@ -57,7 +57,7 @@ export default function SwiperComponent() {
             data-aos-easing="ease-in-sine"
           >
             <div className="row text-sm-start text-center">
-              <div className="card">
+              <div className="card m-0">
                 <div className="card-head fs-1 fw-bold">
                   What React does?
                 </div>
@@ -78,7 +78,7 @@ export default function SwiperComponent() {
         {isDisplayed === "third" && (
           <div className="third" data-aos="fade" data-aos-easing="ease-in-sine">
             <div className="row text-sm-start text-center">
-              <div className="card">
+              <div className="card m-0">
                 <div className="card-head fs-1 fw-bold">
                   Firebase
                 </div>

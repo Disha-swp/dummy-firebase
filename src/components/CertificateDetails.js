@@ -30,7 +30,7 @@ const Certify = () => {
 
   const [newRole, setNewRole] = useState("");
   const [newType, setNewType] = useState("");
-
+  
   const [users, setUsers] = useState([]);
 
   const [showEdit, setShowEdit] = useState(false);
@@ -57,7 +57,7 @@ const Certify = () => {
         certificate_number: newCertificateNumber,
 
         issuer_date: dateValue,
-        issuer: "Squibix",
+        issuer: "Academy",
         role: newRole,
         type: newType,
       });
@@ -128,10 +128,10 @@ const Certify = () => {
   return (
     <div className="main container-fluid p-0 ">
       <NavBar />
-      <div className="container align-items-center text-center text-sm-start p-3 mt-5">
+      <div className="container align-items-center text-center text-sm-start p-3">
         <div>
           <button
-            className="btn btn-secondary align-items-center ms-3"
+            className="btn btn-secondary align-items-center ms-lg-3"
             onClick={() => {
               setShow(true);
             }}
