@@ -12,6 +12,7 @@ import {
   deleteDoc,
   doc,
 } from "firebase/firestore";
+import NavBar from "../Pages/NavBar";
 
 const Employee = () => {
   console.log("firebae conn chk", db);
@@ -79,6 +80,7 @@ const Employee = () => {
   };
   useEffect(() => {
     getUsers();
+    window.scrollTo(0, 0);
     // eslint-disable-next-line 
   }, []);
 
@@ -100,7 +102,9 @@ const Employee = () => {
   }, [modalData]);
 
   return (
-    <div style={{height:"100vh"}}>
+    <div>
+      <NavBar />
+      <div className="container align-items-center text-center text-sm-start p-3 mt-5">
       <div>
         <button
           className="btn btn-secondary align-items-center ms-3"
@@ -116,7 +120,7 @@ const Employee = () => {
         <Row xs={1} md={3}>
           {users.length > 0 &&
             users.map((ele, ind) => (
-              <div className="col">
+              <div className="col" key={ind}>
                 <div className="card card-style my-3">
                   <div
                     className="card-body border border-dark rounded-2 "
@@ -355,6 +359,7 @@ const Employee = () => {
           )}
         </Modal.Footer>
       </Modal>
+      </div>
     </div>
   );
 };

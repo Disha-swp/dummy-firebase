@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function NavBar(props) {
   return (
-    <nav className="navbar sticky-top navbar-expand-lg bg-light">
+    <nav className="navbar fixed-top navbar-expand-lg bg-light" style={{width:"100%"}}>
       <div className="container">
         <Link className="navbar-brand" to="/">
           Academy

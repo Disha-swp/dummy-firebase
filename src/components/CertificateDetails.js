@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import {
   Row,
-  Col,
-  Card,
   Container,
   Button,
   Modal,
@@ -19,8 +17,10 @@ import {
   updateDoc,
   deleteDoc,
   doc,
+  // eslint-disable-next-line
   getFirestore,
 } from "firebase/firestore";
+import NavBar from "../Pages/NavBar";
 
 const Certify = () => {
   console.log("firebae conn chk", db);
@@ -46,7 +46,7 @@ const Certify = () => {
     setShowEdit(false);
   };
   // const handleShow = () => setShow(true);
-
+// eslint-disable-next-line
   const ref = useRef(null);
 
   const createUser = async () => {
@@ -102,6 +102,8 @@ const Certify = () => {
 
   useEffect(() => {
     getUsers();
+    window.scrollTo(0, 0);
+    // eslint-disable-next-line
   }, []);
   const getUsers = async () => {
     console.log("use effect called");
@@ -113,6 +115,7 @@ const Certify = () => {
   // console.log(users);
 
   useEffect(() => {
+
     if (modalData) {
       setNewName(modalData.candidate_name);
       setNewCertificateNumber(modalData.certificate_number);
@@ -123,8 +126,9 @@ const Certify = () => {
   }, [modalData]);
 
   return (
-    <div className="main container-fluid p-0 " style={{ height: "90vh" }}>
-      <div className="container align-items-center text-center text-sm-start p-3">
+    <div className="main container-fluid p-0 ">
+      <NavBar />
+      <div className="container align-items-center text-center text-sm-start p-3 mt-5">
         <div>
           <button
             className="btn btn-secondary align-items-center ms-3"
@@ -137,10 +141,10 @@ const Certify = () => {
         </div>
         {/* createUser() ; */}
         <Container>
-          <Row xs={3} md={4}>
+          <Row xs={1} md={4}>
             {users.length > 0 &&
               users.map((ele, ind) => (
-                <div className="col">
+                <div className="col" key={ind}>
                   <div className="card card-style my-3">
                     <div
                       className="card-body border border-dark rounded-2 "

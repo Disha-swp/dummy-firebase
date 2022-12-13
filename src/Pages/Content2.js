@@ -26,15 +26,13 @@ function Content2() {
           {/* <img src={GroupsIcon} alt="ledger" /> */}
           <Diversity3Icon style={{ height: "120px", width: "120px" }} />
 
-          <div className="fs-3 fw-bold">
-            {" "}
-            Corda
-          </div>
+          <div className="fs-3 fw-bold"> Build</div>
           <div className="p-2 " style={paraColor}>
             {" "}
-            A modular open-source framework for developing distributed ledger
-            systems with high levels of secrecy, flexibility, robustness, and
-            scalability.
+            Build powerful apps. Spin up your backend without managing servers.
+            Effortlessly scale to support millions of users with Firebase
+            databases, machine learning infrastructure, hosting and storage
+            solutions, and Cloud Functions.
           </div>
         </div>
       </div>
@@ -46,14 +44,13 @@ function Content2() {
         <div>
           {/* <img src={polkadot} alt="ledger" style={imgsmall} /> */}
           <SchoolIcon style={{ height: "120px", width: "120px" }} />
-          <div className="fs-3 fw-bold">
-            {" "}
-            Polkadot
-          </div>
+          <div className="fs-3 fw-bold"> Release & Monitor</div>
           <div className="p-2" style={paraColor}>
             {" "}
-            Network of blockchains that provides seamless communication across
-            blockchains and unrivalled security.
+            Improve app quality in less time with less effort. Simplify testing,
+            triaging, and troubleshooting. Carefully roll out features and
+            monitor adoption. Pinpoint, prioritize, and fix stability and
+            performance issues early.
           </div>
         </div>
       </div>
@@ -65,15 +62,12 @@ function Content2() {
         <div>
           {/* <img src={hyperledger} alt="ledger" style={imgsmall} /> */}
           <LibraryBooksIcon style={{ height: "120px", width: "120px" }} />
-          <div className="fs-3 fw-bold">
-            {" "}
-            Hyperledger
-          </div>
+          <div className="fs-3 fw-bold"> Engage</div>
           <div className="p-2" style={paraColor}>
             {" "}
-            A modular open-source framework for developing distributed ledger
-            systems with high levels of secrecy, flexibility, robustness, and
-            scalability.
+            Boost user engagement with rich analytics, A/B testing, and
+            messaging campaigns. Understand your users to better support and
+            retain them. Run experiments to test ideas and uncover new insights.
           </div>
         </div>
       </div>
@@ -85,13 +79,12 @@ function Content2() {
         <div>
           {/* <img src={ethereum} alt="ethereum" style={imgsmall} /> */}
           <BusinessIcon style={{ height: "120px", width: "120px" }} />
-          <div className="fs-3 fw-bold">
-            Ethereum
-          </div>
+          <div className="fs-3 fw-bold">Guides</div>
           <div className="p-2" style={paraColor}>
-            A decentralised blockchain framework that establishes a peer-to-peer
-            community for securely implementing and authenticating code, termed
-            as smart contracts.
+            Descriptive how-to content with both high-level introductions and
+            step-by-step workflows for using Firebase products. Find Firebase
+            guides under the Fundamentals, Build, Release & Monitor, and Engage
+            tabs at the top of the page.
           </div>
         </div>
       </div>

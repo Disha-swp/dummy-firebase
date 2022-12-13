@@ -122,12 +122,11 @@ function OurTechExpertise() {
             style={over === "corda" ? title : preTitle}
           >
             {" "}
-            Security
+            Firebase
           </div>
           <div className="p-2" style={over === "corda" ? desc : preDesc}>
             {" "}
-            Publicly-available internet of nodes operated by network
-            participants.
+             It offers NoSQL and real-time hosting of databases, content, social authentication, and notifications, or services, such as a real-time communication server
           </div>
           <button
             className="btn p-2 px-4 my-2 rounded-3 fw-bolder"
@@ -162,12 +161,11 @@ function OurTechExpertise() {
             style={over === "polkadot" ? title : preTitle}
           >
             {" "}
-            Polkadot
+            Declarative
           </div>
           <div className="p-2" style={over === "polkadot" ? desc : preDesc}>
             {" "}
-            Network of blockchains that provides seamless communication across
-            blockchains and unrivalled security.
+            React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
           </div>
           <button
             className="btn p-2 px-4 my-2 rounded-3 fw-bolder"
@@ -203,13 +201,11 @@ function OurTechExpertise() {
             style={over === "ledger" ? title : preTitle}
           >
             {" "}
-            Hyperledger
+            Component-Based
           </div>
           <div className="p-2" style={over === "ledger" ? desc : preDesc}>
             {" "}
-            A modular open-source framework for developing distributed ledger
-            systems with high levels of secrecy, flexibility, robustness, and
-            scalability.
+            Build encapsulated components that manage their own state, then compose them to make complex UIs.
           </div>
           <button
             className="btn p-2 px-4 my-2 rounded-3 fw-bolder"
@@ -244,12 +240,10 @@ function OurTechExpertise() {
             className="fs-3 fw-bold"
             style={over === "ethereum" ? title : preTitle}
           >
-            Ethereum
+            Learn Once, Write Anywhere
           </div>
           <div className="p-2" style={over === "ethereum" ? desc : preDesc}>
-            A decentralised blockchain framework that establishes a peer-to-peer
-            community for securely implementing and authenticating code, termed
-            as smart contracts.
+          We don’t make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code.
           </div>
           <button
             className="btn p-2 px-4 my-2 rounded-3 fw-bolder"

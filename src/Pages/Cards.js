@@ -65,11 +65,9 @@ function Cards() {
             />
           </div>
           <div className="card-body p-0">
-            <h5 className="card-title fw-bold">SSID</h5>
+            <h5 className="card-title fw-bold">Declarative</h5>
             <p className="card-text p-4 " style={paraStyle1}>
-              Self Sovereign Identity is the definition of the new tomorrow
-              where you get to choose the data you want to share, here at Squbix
-              WE ARE BUILDING THAT FUTURE
+            React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
             </p>
           </div>
         </div>
@@ -92,11 +90,11 @@ function Cards() {
             />
           </div>
           <div className="card-body p-0">
-            <h5 className="card-title fw-bold">DeFi</h5>
+            <h5 className="card-title fw-bold">Component-Based</h5>
             <p className="card-text p-4" style={paraStyle2}>
-              Decentralised finance is the pinnacle of revolution capacitated to
-              the possibilities of converting money into a dispersed asset, WE
-              ARE STRIVING TO BUILD PROGRAMMABLE MONEY FOR THE POSTERITY.
+            Build encapsulated components that manage their own state, then compose them to make complex UIs.
+
+Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM.
             </p>
           </div>
         </div>
@@ -117,11 +115,9 @@ function Cards() {
             <TaskRoundedIcon style={{ height: "120px", width: "126px" }} />
           </div>
           <div className="card-body p-0">
-            <h5 className="card-title fw-bold">Smart Contracts</h5>
+            <h5 className="card-title fw-bold">Learn Once, Write Anywhere</h5>
             <p className="card-text p-4" style={paraStyle3}>
-              Building ideologies and implementing them via automation is an
-              ineludible reality with the extent of technology attainable,
-              CONTACT US TO BUILD YOU SMART CONTRACT TODAY.
+            We don’t make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code.
             </p>
           </div>
         </div>

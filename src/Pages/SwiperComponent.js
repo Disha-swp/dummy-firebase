@@ -34,14 +34,10 @@ export default function SwiperComponent() {
             <div className="remove-item row text-sm-start text-center">
               <div className="card">
                 <div className="card-head fs-1 fw-bold">
-                  Products | Solutions | Services
+                  JavaScript
                 </div>
                 <div className="card-text fs-5 mt-3 ">
-                  A pathway of calibers suffused with expertise in Blockchain
-                  Development, cloud services, testing automation,
-                  Web-Development, Mobile Development, and many more. The
-                  penultimate objective is to bring ingenious solutions to solve
-                  business problems.
+                JavaScript is the world's most popular programming language. JavaScript is the programming language of the Web
                 </div>
               </div>
             </div>
@@ -63,14 +59,10 @@ export default function SwiperComponent() {
             <div className="row text-sm-start text-center">
               <div className="card">
                 <div className="card-head fs-1 fw-bold">
-                  Blockchain Consultant
+                  What React does?
                 </div>
                 <div className="card-text fs-5 mt-3">
-                  The unfathomable potential of Blockchain is sheerly
-                  indomitable which makes it the pinnacle of current world
-                  innovation. Our team at Squbix has had its establishments in
-                  the domains of wallet development, CBDC, Core Blockchain
-                  Development etc.
+                React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
                 </div>
               </div>
             </div>
@@ -88,13 +80,10 @@ export default function SwiperComponent() {
             <div className="row text-sm-start text-center">
               <div className="card">
                 <div className="card-head fs-1 fw-bold">
-                  Training & Education
+                  Firebase
                 </div>
                 <div className="card-text fs-5 mt-3">
-                  We provide industry standard training on BLOCKCHAIN and AI.
-                  Also get a chance to learn development of real-world products
-                  such as wallet, coin, exchange platform, applications under
-                  the guidnace of our highly experienced developers.
+                Firebase is a set of hosting services for any type of application. It offers NoSQL and real-time hosting of databases, content, social authentication, and notifications, or services, such as a real-time communication server
                 </div>
               </div>
             </div>
