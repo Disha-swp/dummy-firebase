@@ -53,7 +53,16 @@ const updateUser = async (id) => {
 
 
 
+!!! ()
+major bug encounterred 
+case:- created the function signUp() in Signup.js inside signUp function called
+ createUserWithEmailAndPassword
+what happened here was my user was getting created but the alert msg which i was gettin was
+auth/network-request-failed even when my user was created in fire base
+solution:- the button where i called my signUp function there i didn,t declare any 
+type ---> later what i did was i defined type=button and now its working fine!!!
 
+type=button was the hero here!!
 
 
 

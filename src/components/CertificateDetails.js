@@ -173,7 +173,7 @@ const Certify = () => {
             )}
           </Modal.Header>
           <Modal.Body>
-            Woohoo, you're reading this text in a modal!
+            {/* Woohoo, you're reading this text in a modal! */}
             {/* to show */}
             {modalData && showEdit && (
               <>

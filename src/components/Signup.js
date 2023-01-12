@@ -4,49 +4,74 @@ import {
 } from "firebase/auth";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUserAuth } from "../context/UserAuthContext";
 import { auth } from "../firebase-config";
 function Signup() {
   let history = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const signUp = () =>
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        history("/");
-        const user = userCredential.user;
-        console.log(user);
-        alert("Successfully created an account");
-      })
-      .catch((error) => {
-        // console.log(JSON.stringify(auth, null, 2));
-        // const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorMessage);
-      });
+  const [error,setError] = useState("");
+  const {signUp,signIn} = useUserAuth();
+  const handleSubmitSignUp = async(e) =>{
+    e.preventDefault();
+    setError("");
+    try{
+      await signUp(email,password)
+    }catch(err)
+    {
+      alert(err.message)
+      setError(err.message);
+    }
+  }
+  const handleSubmitSignIn = async(e) =>{
+    e.preventDefault();
+    setError("");
+    try{
+      await signIn(email,password)
+    }catch(err)
+    {
+      alert(err.message)
+      setError(err.message);
+    }
+  }
+  // const signUp = () =>
+  //   createUserWithEmailAndPassword(auth, email, password)
+  //     .then((userCredential) => {
+  //       history("/");
+  //       const user = userCredential.user;
+  //       console.log(user);
+  //       alert("Successfully created an account");
+  //     })
+  //     .catch((error) => {
+  //       // console.log(JSON.stringify(auth, null, 2));
+  //       // const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //       alert(errorMessage);
+  //     });
 
-  const signIn = () =>
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user);
-        history("/");
-        // alert("already registered");
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        // const errorMessage = error.message;
-        errorCode === "auth/wrong-password"
-          ? alert(" wrong password")
-          : errorCode === "auth/invalid-email"
-          ? alert("fill form")
-          : errorCode === "auth/internal-error"
-          ? alert("enter password")
-          : alert("not a valid user");
+  // const signIn = () =>
+  //   signInWithEmailAndPassword(auth, email, password)
+  //     .then((userCredential) => {
+  //       // Signed in
+  //       const user = userCredential.user;
+  //       console.log(user);
+  //       history("/");
+  //       // alert("already registered");
+  //       // ...
+  //     })
+  //     .catch((error) => {
+  //       const errorCode = error.code;
+  //       // const errorMessage = error.message;
+  //       errorCode === "auth/wrong-password"
+  //         ? alert(" wrong password")
+  //         : errorCode === "auth/invalid-email"
+  //         ? alert("fill form")
+  //         : errorCode === "auth/internal-error"
+  //         ? alert("enter password")
+  //         : alert("not a valid user");
 
-        // alert(errorCode);
-      });
+  //       // alert(errorCode);
+  //     });
 
   return (
     <div>
@@ -99,7 +124,7 @@ function Signup() {
                   type="button"
                   className="btn btn-primary btn-lg"
                   style={{ paddingLeft: " 2.5rem", paddingRight: "2.5rem" }}
-                  onClick={() => signIn()}
+                  onClick={(e) => handleSubmitSignIn(e)}
                 >
                   Login
                 </button>
@@ -107,7 +132,7 @@ function Signup() {
                   Don't have an account?{" "}
                   <button
                     type="button"
-                    onClick={() => signUp()}
+                    onClick={(e) => handleSubmitSignUp(e)}
                     className=" btn btn-sm btn-danger m-2"
                   >
                     Register

@@ -1,6 +1,7 @@
 import Employee from "./components/EmployeeDetails";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Certify from "./components/CertificateDetails";
+import ProtectedRoute from "./ProtectedRoute";
 import React, { useState } from "react";
 import Home from "./Home";
 // eslint-disable-next-line
@@ -18,6 +19,7 @@ import Delete from "./Compo/Delete";
 // eslint-disable-next-line
 import NavBar from "./Pages/NavBar";
 import Signup from "./components/Signup";
+import { UserAuthContextProvider } from "./context/UserAuthContext";
 const App = () => {
   const [theme, setTheme] = useState("light");
   // eslint-disable-next-line
@@ -29,21 +31,20 @@ const App = () => {
       setTheme("light");
     }
   };
-
-  // useEffect(() => {
-  //   document.body.className = theme;
-  // }, [theme]);
   return (
+    
     <Router>
       <div className={`App ${theme}`}>
         <div className="wrapper container-fluid p-3  ">
-          <div className="row text-center">
-            <div className="col p-3"><button className="btn btn-secondary mt-5 " onClick={toggleTheme}>
-              Toggle
-            </button></div>
-            
-          </div>
+          {/* <div className="row text-center">
+            <div className="col p-3">
+              <button className="btn btn-secondary mt-5 " onClick={toggleTheme}>
+                Toggle
+              </button>
+            </div>
+          </div> */}
           <div className="container align-items-center text-center text-sm-start p-3 mt-3">
+          <UserAuthContextProvider>
             <Routes>
               {/* <Route exact path = '/' element={<Create/>}/> */}
 
@@ -52,10 +53,10 @@ const App = () => {
               {/* <Router>
       <Routes> */}
               <Route path="/dummy-firebase" exact={true} element={<Signup />} />
-              <Route path="/" exact={true} element={<Home />} />
+              <Route path="/" exact={true} element={<ProtectedRoute> <Home /> </ProtectedRoute>} />
               {/* </Route> */}
-              <Route path="/empdetails" element={<Employee />} />
-              <Route path="/certificate" element={<Certify />} />
+              <Route path="/empdetails" element={<ProtectedRoute><Employee /></ProtectedRoute>} />
+              <Route path="/certificate" element={<ProtectedRoute><Certify /></ProtectedRoute>} />
               {/* <Callapi /> */}
               {/* </Routes>
       </Router> */}
@@ -63,9 +64,10 @@ const App = () => {
               {/* <Route exact path = '/update' element ={<Update/>}/> */}
               {/* <Route exact path = '/delete' element={<Delete/>}/> */}
             </Routes>
+            </UserAuthContextProvider>
           </div>
         </div>
-        <div
+        {/* <div
           className=" d-flex p-0 flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary"
           style={{ width: "100%", bottom: "0", overflow: "hidden" }}
         >
@@ -86,9 +88,10 @@ const App = () => {
               <i className="fab fa-linkedin-in"></i>
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </Router>
+    
   );
 };
 export default App;

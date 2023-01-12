@@ -1,12 +1,25 @@
+import { useUserAuth } from "../context/UserAuthContext";
 import React from "react";
 import { Link } from "react-router-dom";
-
-function NavBar(props) {
+function NavBar() {
+  const { signOutt } = useUserAuth();
+  const handleSignOutt = async (e) => {
+    e.preventDefault();
+    try {
+      await signOutt();
+    } catch (err) {
+      alert(err.message);
+      // setError(err.message);
+    }
+  };
   return (
-    <nav className="navbar fixed-top navbar-expand-lg bg-light" style={{width:"100%"}}>
+    <nav
+      className="navbar fixed-top navbar-expand-lg bg-light"
+      style={{ width: "100%" }}
+    >
       <div className="container">
         <Link className="navbar-brand" to="/">
-          Academy
+          Squbix
         </Link>
         <button
           className="navbar-toggler"
@@ -28,13 +41,22 @@ function NavBar(props) {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/certificate">
-                Certificate Details
+              Certificate Details
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/empdetails">
-                Employee Details
+                Employee Details 
               </Link>
+            </li>
+            <li className="nav-item">
+              <button
+                type="button"
+                onClick={(e) => handleSignOutt(e)}
+                className="btn btn-primary"
+              >
+                Sign Out
+              </button>
             </li>
           </ul>
           {/* <form className="d-flex" role="search">
